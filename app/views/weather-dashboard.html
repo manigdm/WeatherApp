@@ -1,0 +1,69 @@
+<section ng-include="'views/directive-templates/header.html'"></section>
+<section class="container">
+  	<div class="filter-container col-md-12 p-init bg-white m-top-bottom-space p-top-bottom-space">
+  		<div class="filter-txt col-md-12">
+			<h4 class="pull-left">FILTER BY</h4>
+		</div>
+  		<div class="input-box-md col-md-3">
+			<form ng-submit="locationSearch()">
+				<input class="form-control m-init" type="text" ng-model="weatherLocation" placeholder="Location">
+				<span class="search-icon glyphicon glyphicon-search" ng-click="locationSearch()"></span>
+			</form>
+		</div>
+		<div class="input-box-md col-md-3">
+			<select class="col-md-12 custom-select" ng-model ="weatherDay" ng-options="weatherDay for weatherDay in weatherDays" ng-change="changeDays()"></select>
+		</div>
+  	</div>
+  	<div class="weather-report-tpl bg-white clearfix pos-rel" style="min-height: 218px;" ng-init="getWeatherList()">
+  	 	<table class="table" ng-if="weatherReports.list">
+			<thead>
+				<tr class="table-title">
+				  <th>#</th>
+				  <th>DESCRIPTION</th>
+				  <th colspan="4">Temparature</th>
+				  <th>Clouds</th>
+				  <th>Degree</th>
+				  <th>Humidity</th>
+				  <th>Pressure</th>
+				  <th colspan="2">Rain</th>
+				</tr>
+				<tr>
+		            <th></th>
+		            <th></th>
+		            <th>Day</th>
+		            <th>Night</th>
+		            <th>Min</th>
+		            <th>Max</th>
+		            <th></th>
+		            <th></th>
+		            <th></th>
+		            <th></th>
+		            <th></th>
+		            <th></th>
+		        </tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="weatherReport in weatherReports.list">
+			  <td>{{$index+1}}</td>
+			  <td><span ng-if="weatherReport.weather[0].icon"><img src="http://openweathermap.org/img/w/{{weatherReport.weather[0].icon}}.png">{{weatherReport.weather[0].description}}</span></td>
+			  <td>{{weatherReport.temp.day ? weatherReport.temp.day : '---'}}</td>
+			  <td>{{weatherReport.temp.night ? weatherReport.temp.night :'---'}}</td>
+			  <td>{{weatherReport.temp.min ? weatherReport.temp.min : '---'}}</td>
+			  <td>{{weatherReport.temp.max ? weatherReport.temp.max : '---'}}</td>
+			  <td>{{weatherReport.clouds ? weatherReport.clouds : '---'}}</td>
+			  <td>{{weatherReport.deg ? weatherReport.deg : '---'}}</td>
+			  <td>{{weatherReport.humidity ? weatherReport.humidity : '---'}}</td>
+			  <td>{{weatherReport.pressure ? weatherReport.pressure : '---'}}</td>
+			  <td colspan="2">{{weatherReport.rain ? weatherReport.rain : '---'}}</td>
+			</tr>
+			</tbody>
+		</table>
+		<div ng-show="showLoading">
+			<div class="vertical-center process-loader"></div>
+		</div>
+		<div ng-show="noRecord">
+			<div class="vertical-center" style="height:20px;"><h4>There is no record available</h4></div>
+		</div>
+  	</div>
+</section>
+

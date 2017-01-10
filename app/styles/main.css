@@ -1,0 +1,88 @@
+body {
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+input:focus, .form-control:focus, select:focus{
+  outline: none;
+  border-color: #ccc;
+  box-shadow: none;
+}
+.table > thead > tr > th {
+  border-bottom: none; 
+}
+.table .table-title > th{
+  padding: 15px 10px;
+}
+.table > thead th, .table > tbody tr > td{
+  text-align: center;
+}
+.table tbody tr > td {
+  vertical-align: middle;
+}
+
+/*common style*/
+.bg-white{
+  background-color: #fff;
+}
+.process-loader{
+  background-image: url(../images/loader.gif);
+  height: 20px;
+  width: 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.brand{
+  background-image: url(../images/brand.svg);
+  height: 40px;
+  width: 40px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 15px;
+}
+
+.vertical-center {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 44444;
+    text-align: center;
+}
+.p-init{
+  padding: 0;
+}
+.pos-rel{
+  position: relative;
+}
+.search-icon{
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  cursor: pointer;
+}
+.custom-select{
+  height: 34px;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.m-top-bottom-space{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.p-top-bottom-space{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.ptr{
+  cursor: pointer;
+}
+.clearfix{
+  clear: both;
+  overflow: hidden;
+}
+
